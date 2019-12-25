@@ -1,14 +1,15 @@
-var http = require('http')
+const http = require('http')
+const os = require("os");
+const execSync = require('child_process').execSync;
 
-var port = 4000
+const port = 4000
 
-var os = require("os");
-
-var server = http.createServer(function (request, response) {
+const server = http.createServer(function (request, response) {
+  const data = execSync("df -h");
   response.writeHead(200, {'Content-Type': 'text/plain'})
-  response.end('Hello World build test! Foobar \n' + os.hostname())
+  response.end('Hello World build test! Foobar \n' + os.hostname() + '\n' + data.toString())
 })
 
 server.listen(port)
 
-console.log('Server running at http://localhost:' + port)
+console.log(`Server running at port: ${port}`)
