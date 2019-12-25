@@ -4,10 +4,12 @@ const execSync = require('child_process').execSync;
 
 const port = 4000
 
+
 const server = http.createServer(function (request, response) {
   const data = execSync("df -h");
+  const whoami = execSync("whoami");
   response.writeHead(200, {'Content-Type': 'text/plain'})
-  response.end('Hello World build test! Foobar \n' + os.hostname() + '\n' + data.toString())
+  response.end('Hello World build test! Foobar \n' + os.hostname() + "\n" + whoami + '\n' + data.toString())
 })
 
 server.listen(port)
