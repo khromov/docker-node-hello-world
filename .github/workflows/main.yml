@@ -17,8 +17,8 @@ jobs:
         # GitHub Personal Access Token for the user.
         personalAccessToken: ${{ secrets.ACCESS_TOKEN }}
         # The repository to push the image to. Defaults to current repository. Must be specified in format user/repo
-        # repositoryName: # optional
+        repositoryName: khromov/docker-node-hello-world # optional
         # The desired name for the image. Defaults to current repository name.
-        # imageName: # optional
+        imageName: docker-node-hello-world # optional
         # The desired tag for the image. Defaults to current branch or release version number.
         # imageTag: # optional
